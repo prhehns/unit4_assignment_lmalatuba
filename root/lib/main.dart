@@ -36,7 +36,7 @@ class ProfilePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05, // Dynamic horizontal padding
+            horizontal: screenWidth * 0.02, // Dynamic horizontal padding
             vertical: screenHeight * 0.02, // Dynamic vertical padding
           ),
           child: Column(
@@ -45,7 +45,7 @@ class ProfilePage extends StatelessWidget {
               // Profile Picture and Name
               Container(
                 color: Colors.lightBlueAccent.withOpacity(0.3), // Background color
-                padding: EdgeInsets.all(screenWidth * 0.02), // Padding for the container
+                padding: EdgeInsets.all(screenWidth * 0.05), // Padding for the container
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,51 +72,63 @@ class ProfilePage extends StatelessWidget {
               ),
               SizedBox(height: screenHeight * 0.05), // Spacing after profile section
 
-              // Information Section
+              // GridView for Information Section
               Container(
                 color: Colors.grey[200], // Background color for info section
                 padding: EdgeInsets.all(screenWidth * 0.05), // Padding for the container
                 child: Column(
+                  // Use Column to allow GridView to take the size of its children
                   children: [
-                    InfoSection(
-                      icon: Icons.cake,
-                      label: 'Birthdate',
-                      value: 'October 20, 2003',
-                      screenWidth: screenWidth * 0.5,
-                    ),
-                    InfoSection(
-                      icon: Icons.home,
-                      label: 'Address',
-                      value: 'Bato, Roxas, Capiz',
-                      screenWidth: screenWidth * 0.5,
-                    ),
-                    InfoSection(
-                      icon: Icons.email,
-                      label: 'Email',
-                      value: 'princealexander.malatuba@wvsu.edu.ph',
-                      screenWidth: screenWidth * 0.5,
-                    ),
-                    InfoSection(
-                      icon: Icons.phone,
-                      label: 'Phone Number',
-                      value: '09998888777',
-                      screenWidth: screenWidth * 0.5,
-                    ),
-                    InfoSection(
-                      icon: Icons.school,
-                      label: 'Education',
-                      value: 'West Visayas State University',
-                      screenWidth: screenWidth * 0.5,
-                    ),
-                    InfoSection(
-                      icon: Icons.favorite,
-                      label: 'Hobbies',
-                      value: 'Reading, Sleeping, and Playing',
-                      screenWidth: screenWidth * 0.5,
+                    // Wrapping the GridView in a Container to control its size
+                    SizedBox(
+                      height: screenHeight *0.3,
+                      child: GridView.count(
+                        crossAxisCount: 2, // Number of columns
+                        shrinkWrap: true, // Make it fit within the available space
+                        children: [
+                          InfoSection(
+                            icon: Icons.cake,
+                            label: 'Birthdate',
+                            value: 'October 20, 2003',
+                            screenWidth: screenWidth * 0.5,
+                          ),
+                          InfoSection(
+                            icon: Icons.home,
+                            label: 'Address',
+                            value: 'Bato, Roxas, Capiz',
+                            screenWidth: screenWidth * 0.5,
+                          ),
+                          InfoSection(
+                            icon: Icons.email,
+                            label: 'Email',
+                            value: 'princealexander.malatuba@wvsu.edu.ph',
+                            screenWidth: screenWidth * 0.5,
+                          ),
+                          InfoSection(
+                            icon: Icons.phone,
+                            label: 'Phone Number',
+                            value: '09998888777',
+                            screenWidth: screenWidth * 0.5,
+                          ),
+                          InfoSection(
+                            icon: Icons.school,
+                            label: 'Education',
+                            value: 'West Visayas State University',
+                            screenWidth: screenWidth * 0.5,
+                          ),
+                          InfoSection(
+                            icon: Icons.favorite,
+                            label: 'Hobbies',
+                            value: 'Reading, Sleeping, and Playing',
+                            screenWidth: screenWidth * 0.5,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
+
 
               SizedBox(height: screenHeight * 0.05), // Spacing after info section
 
